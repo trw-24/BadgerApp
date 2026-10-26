@@ -1,0 +1,37 @@
+# Example Terraform Variables for Badger Delivery Service
+# Copy this file to terraform.tfvars and customize for your deployment
+
+# AWS Configuration
+aws_region = "us-west-2"
+project_name = "badger-delivery"
+environment = "dev"
+
+# Network Configuration
+vpc_cidr = "10.0.0.0/16"
+public_subnet_cidr = "10.0.1.0/24"
+public_subnet_2_cidr = "10.0.2.0/24"
+
+# Database Configuration
+db_instance_class = "db.t3.micro"
+db_name = "badgers"
+db_username = "badger_admin"
+db_password = "BadgerPass123!"  # Change this in production!
+
+# Redis Configuration
+redis_node_type = "cache.t3.micro"
+
+# ECS Configuration
+ecs_cpu = 256
+ecs_memory = 512
+ecs_desired_count = 1
+app_image = "your-account.dkr.ecr.us-west-2.amazonaws.com/badger-delivery:latest"
+
+# Tags
+common_tags = {
+  Project     = "BadgerDelivery"
+  Environment = "Development"
+  Owner       = "DevTeam"
+  CostCenter  = "Engineering"
+  Backup      = "false"
+  Monitoring  = "basic"
+}
